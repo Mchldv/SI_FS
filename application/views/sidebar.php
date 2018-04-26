@@ -38,7 +38,7 @@
 						<i class="fa fa-angle-left pull-right"></i>
 					</a>
 					<ul class="treeview-menu">
-						<li><a href="index/memberOverview"><i class="fa fa-angle-double-right"></i> Overview</a></li>
+						<li><a href="<?php echo base_url()?>Admin/list_jemaat"><i class="fa fa-angle-double-right"></i> Overview</a></li>
 						<li><a href="index/memberAttendance"><i class="fa fa-angle-double-right"></i> Attendance</a></li>
 					</ul>
 				</li>
