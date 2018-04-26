@@ -14,7 +14,7 @@ class Admin extends CI_Controller {
 
 	public function _example_output($output = null)
 	{
-		$this->load->view('index.php',(array)$output);
+		$this->load->view('example.php',(array)$output);
 	}
 
 	public function offices()

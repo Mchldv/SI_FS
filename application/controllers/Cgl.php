@@ -36,9 +36,13 @@ class Cgl extends CI_Controller {
 			$crud = new grocery_CRUD();
 
 			$crud->set_theme('datatables');
-			$crud->set_table('jemaat');
-			$crud->set_subject('jemaat');
-			$crud->columns('NAMA_JEMAAT','TGL_LAHIR_JEMAAT','ALAMAT_JEMAAT','NO_HP_JEMAAT');
+			$crud->where('id_cg','1');
+			$crud->set_table('cgm');
+			$crud->set_subject('CG Member');
+			$crud->columns('_id_jemaat');
+			
+			$crud->set_relation('_id_jemaat','jemaat','nama_jemaat');
+			$crud->display_as('_id_jemaat','Nama member');
 
 			$output = $crud->render();
 

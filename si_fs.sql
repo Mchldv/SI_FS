@@ -251,8 +251,8 @@ CREATE TABLE `wt` (
 -- Indexes for table `absensi`
 --
 ALTER TABLE `absensi`
-  ADD PRIMARY KEY (`ID_EVENT`,`_ID_JEMAAT`),
-  ADD KEY `FK_RELATIONSHIP_21` (`_ID_JEMAAT`);
+  ADD PRIMARY KEY (`ID_EVENT`,`_ID_JEMAAT`);
+  -- ADD KEY `FK_RELATIONSHIP_21` (`_ID_JEMAAT`);
 
 --
 -- Indexes for table `cg`
@@ -264,9 +264,9 @@ ALTER TABLE `cg`
 -- Indexes for table `cgm`
 --
 ALTER TABLE `cgm`
-  ADD PRIMARY KEY (`ID_MEMBER`),
-  ADD KEY `FK_MEMILIKI_2` (`ID_CG`),
-  ADD KEY `FK_RELATIONSHIP_4` (`_ID_JEMAAT`);
+  ADD PRIMARY KEY (`ID_MEMBER`);
+  -- ADD KEY `FK_MEMILIKI_2` (`ID_CG`),
+  -- ADD KEY `FK_RELATIONSHIP_4` (`_ID_JEMAAT`);
 
 --
 -- Indexes for table `event`
@@ -278,10 +278,10 @@ ALTER TABLE `event`
 -- Indexes for table `ibadah`
 --
 ALTER TABLE `ibadah`
-  ADD PRIMARY KEY (`ID_IBADAH`),
-  ADD KEY `FK_DIJADWALKAN` (`UT_ID_TEAM`),
-  ADD KEY `FK_DIJADWALKAN_DALAM` (`WT_ID_TEAM`),
-  ADD KEY `FK_RELATIONSHIP_19` (`MUL_ID_TEAM`);
+  ADD PRIMARY KEY (`ID_IBADAH`);
+  -- ADD KEY `FK_DIJADWALKAN` (`UT_ID_TEAM`),
+  -- ADD KEY `FK_DIJADWALKAN_DALAM` (`WT_ID_TEAM`),
+  -- ADD KEY `FK_RELATIONSHIP_19` (`MUL_ID_TEAM`);
 
 --
 -- Indexes for table `jemaat`
@@ -299,30 +299,30 @@ ALTER TABLE `kehadiran_cg`
 -- Indexes for table `kehadiran_ibadah`
 --
 ALTER TABLE `kehadiran_ibadah`
-  ADD PRIMARY KEY (`ID_KEHADIRAN`),
-  ADD KEY `FK_DATANG` (`_ID_JEMAAT`),
-  ADD KEY `FK_MENJALANKAN` (`ID_IBADAH`);
+  ADD PRIMARY KEY (`ID_KEHADIRAN`);
+  -- ADD KEY `FK_DATANG` (`_ID_JEMAAT`),
+  -- ADD KEY `FK_MENJALANKAN` (`ID_IBADAH`);
 
 --
 -- Indexes for table `list_mul`
 --
 ALTER TABLE `list_mul`
-  ADD PRIMARY KEY (`MUL_ID_TEAM`,`_ID_JEMAAT`),
-  ADD KEY `FK_RELATIONSHIP_17` (`_ID_JEMAAT`);
+  ADD PRIMARY KEY (`MUL_ID_TEAM`,`_ID_JEMAAT`);
+  -- ADD KEY `FK_RELATIONSHIP_17` (`_ID_JEMAAT`);
 
 --
 -- Indexes for table `list_ut`
 --
 ALTER TABLE `list_ut`
-  ADD PRIMARY KEY (`UT_ID_TEAM`,`_ID_JEMAAT`),
-  ADD KEY `FK_RELATIONSHIP_11` (`_ID_JEMAAT`);
+  ADD PRIMARY KEY (`UT_ID_TEAM`,`_ID_JEMAAT`);
+  -- ADD KEY `FK_RELATIONSHIP_11` (`_ID_JEMAAT`);
 
 --
 -- Indexes for table `list_wt`
 --
 ALTER TABLE `list_wt`
-  ADD PRIMARY KEY (`WT_ID_TEAM`,`_ID_JEMAAT`),
-  ADD KEY `FK_RELATIONSHIP_14` (`_ID_JEMAAT`);
+  ADD PRIMARY KEY (`WT_ID_TEAM`,`_ID_JEMAAT`);
+  -- ADD KEY `FK_RELATIONSHIP_14` (`_ID_JEMAAT`);
 
 --
 -- Indexes for table `modul`
@@ -340,8 +340,8 @@ ALTER TABLE `multimedia`
 -- Indexes for table `panitia`
 --
 ALTER TABLE `panitia`
-  ADD PRIMARY KEY (`ID_EVENT`,`_ID_JEMAAT`),
-  ADD KEY `FK_RELATIONSHIP_23` (`_ID_JEMAAT`);
+  ADD PRIMARY KEY (`ID_EVENT`,`_ID_JEMAAT`);
+  -- ADD KEY `FK_RELATIONSHIP_23` (`_ID_JEMAAT`);
 
 --
 -- Indexes for table `role`
@@ -353,8 +353,8 @@ ALTER TABLE `role`
 -- Indexes for table `role_jemaat`
 --
 ALTER TABLE `role_jemaat`
-  ADD PRIMARY KEY (`ID_ROLE`,`_ID_JEMAAT`),
-  ADD KEY `FK_RELATIONSHIP_25` (`_ID_JEMAAT`);
+  ADD PRIMARY KEY (`ID_ROLE`,`_ID_JEMAAT`);
+  -- ADD KEY `FK_RELATIONSHIP_25` (`_ID_JEMAAT`);
 
 --
 -- Indexes for table `role_modul`
@@ -378,76 +378,76 @@ ALTER TABLE `wt`
 -- Constraints for dumped tables
 --
 
---
--- Constraints for table `absensi`
---
-ALTER TABLE `absensi`
-  ADD CONSTRAINT `FK_RELATIONSHIP_21` FOREIGN KEY (`_ID_JEMAAT`) REFERENCES `jemaat` (`_ID_JEMAAT`),
-  ADD CONSTRAINT `FK_RELATIONSHIP_22` FOREIGN KEY (`ID_EVENT`) REFERENCES `event` (`ID_EVENT`);
+-- --
+-- -- Constraints for table `absensi`
+-- --
+-- ALTER TABLE `absensi`
+--   ADD CONSTRAINT `FK_RELATIONSHIP_21` FOREIGN KEY (`_ID_JEMAAT`) REFERENCES `jemaat` (`_ID_JEMAAT`),
+--   ADD CONSTRAINT `FK_RELATIONSHIP_22` FOREIGN KEY (`ID_EVENT`) REFERENCES `event` (`ID_EVENT`);
 
---
--- Constraints for table `cgm`
---
-ALTER TABLE `cgm`
-  ADD CONSTRAINT `FK_MEMILIKI_2` FOREIGN KEY (`ID_CG`) REFERENCES `cg` (`ID_CG`),
-  ADD CONSTRAINT `FK_RELATIONSHIP_4` FOREIGN KEY (`_ID_JEMAAT`) REFERENCES `jemaat` (`_ID_JEMAAT`);
+-- --
+-- -- Constraints for table `cgm`
+-- --
+-- ALTER TABLE `cgm`
+--   ADD CONSTRAINT `FK_MEMILIKI_2` FOREIGN KEY (`ID_CG`) REFERENCES `cg` (`ID_CG`),
+--   ADD CONSTRAINT `FK_RELATIONSHIP_4` FOREIGN KEY (`_ID_JEMAAT`) REFERENCES `jemaat` (`_ID_JEMAAT`);
 
---
--- Constraints for table `ibadah`
---
-ALTER TABLE `ibadah`
-  ADD CONSTRAINT `FK_DIJADWALKAN` FOREIGN KEY (`UT_ID_TEAM`) REFERENCES `ut` (`UT_ID_TEAM`),
-  ADD CONSTRAINT `FK_DIJADWALKAN_DALAM` FOREIGN KEY (`WT_ID_TEAM`) REFERENCES `wt` (`WT_ID_TEAM`),
-  ADD CONSTRAINT `FK_RELATIONSHIP_19` FOREIGN KEY (`MUL_ID_TEAM`) REFERENCES `multimedia` (`MUL_ID_TEAM`);
+-- --
+-- -- Constraints for table `ibadah`
+-- --
+-- ALTER TABLE `ibadah`
+--   ADD CONSTRAINT `FK_DIJADWALKAN` FOREIGN KEY (`UT_ID_TEAM`) REFERENCES `ut` (`UT_ID_TEAM`),
+--   ADD CONSTRAINT `FK_DIJADWALKAN_DALAM` FOREIGN KEY (`WT_ID_TEAM`) REFERENCES `wt` (`WT_ID_TEAM`),
+--   ADD CONSTRAINT `FK_RELATIONSHIP_19` FOREIGN KEY (`MUL_ID_TEAM`) REFERENCES `multimedia` (`MUL_ID_TEAM`);
 
---
--- Constraints for table `kehadiran_cg`
---
-ALTER TABLE `kehadiran_cg`
-  ADD CONSTRAINT `FK_MENGHADIRI` FOREIGN KEY (`ID_MEMBER`) REFERENCES `cgm` (`ID_MEMBER`);
+-- --
+-- -- Constraints for table `kehadiran_cg`
+-- --
+-- ALTER TABLE `kehadiran_cg`
+--   ADD CONSTRAINT `FK_MENGHADIRI` FOREIGN KEY (`ID_MEMBER`) REFERENCES `cgm` (`ID_MEMBER`);
 
---
--- Constraints for table `kehadiran_ibadah`
---
-ALTER TABLE `kehadiran_ibadah`
-  ADD CONSTRAINT `FK_DATANG` FOREIGN KEY (`_ID_JEMAAT`) REFERENCES `jemaat` (`_ID_JEMAAT`),
-  ADD CONSTRAINT `FK_MENJALANKAN` FOREIGN KEY (`ID_IBADAH`) REFERENCES `ibadah` (`ID_IBADAH`);
+-- --
+-- -- Constraints for table `kehadiran_ibadah`
+-- --
+-- ALTER TABLE `kehadiran_ibadah`
+--   ADD CONSTRAINT `FK_DATANG` FOREIGN KEY (`_ID_JEMAAT`) REFERENCES `jemaat` (`_ID_JEMAAT`),
+--   ADD CONSTRAINT `FK_MENJALANKAN` FOREIGN KEY (`ID_IBADAH`) REFERENCES `ibadah` (`ID_IBADAH`);
 
---
--- Constraints for table `list_mul`
---
-ALTER TABLE `list_mul`
-  ADD CONSTRAINT `FK_RELATIONSHIP_17` FOREIGN KEY (`_ID_JEMAAT`) REFERENCES `jemaat` (`_ID_JEMAAT`),
-  ADD CONSTRAINT `FK_RELATIONSHIP_18` FOREIGN KEY (`MUL_ID_TEAM`) REFERENCES `multimedia` (`MUL_ID_TEAM`);
+-- --
+-- -- Constraints for table `list_mul`
+-- --
+-- ALTER TABLE `list_mul`
+--   ADD CONSTRAINT `FK_RELATIONSHIP_17` FOREIGN KEY (`_ID_JEMAAT`) REFERENCES `jemaat` (`_ID_JEMAAT`),
+--   ADD CONSTRAINT `FK_RELATIONSHIP_18` FOREIGN KEY (`MUL_ID_TEAM`) REFERENCES `multimedia` (`MUL_ID_TEAM`);
 
---
--- Constraints for table `list_ut`
---
-ALTER TABLE `list_ut`
-  ADD CONSTRAINT `FK_RELATIONSHIP_11` FOREIGN KEY (`_ID_JEMAAT`) REFERENCES `jemaat` (`_ID_JEMAAT`),
-  ADD CONSTRAINT `FK_RELATIONSHIP_12` FOREIGN KEY (`UT_ID_TEAM`) REFERENCES `ut` (`UT_ID_TEAM`);
+-- --
+-- -- Constraints for table `list_ut`
+-- --
+-- ALTER TABLE `list_ut`
+--   ADD CONSTRAINT `FK_RELATIONSHIP_11` FOREIGN KEY (`_ID_JEMAAT`) REFERENCES `jemaat` (`_ID_JEMAAT`),
+--   ADD CONSTRAINT `FK_RELATIONSHIP_12` FOREIGN KEY (`UT_ID_TEAM`) REFERENCES `ut` (`UT_ID_TEAM`);
 
---
--- Constraints for table `list_wt`
---
-ALTER TABLE `list_wt`
-  ADD CONSTRAINT `FK_RELATIONSHIP_14` FOREIGN KEY (`_ID_JEMAAT`) REFERENCES `jemaat` (`_ID_JEMAAT`),
-  ADD CONSTRAINT `FK_RELATIONSHIP_15` FOREIGN KEY (`WT_ID_TEAM`) REFERENCES `wt` (`WT_ID_TEAM`);
+-- --
+-- -- Constraints for table `list_wt`
+-- --
+-- ALTER TABLE `list_wt`
+--   ADD CONSTRAINT `FK_RELATIONSHIP_14` FOREIGN KEY (`_ID_JEMAAT`) REFERENCES `jemaat` (`_ID_JEMAAT`),
+--   ADD CONSTRAINT `FK_RELATIONSHIP_15` FOREIGN KEY (`WT_ID_TEAM`) REFERENCES `wt` (`WT_ID_TEAM`);
 
---
--- Constraints for table `panitia`
---
-ALTER TABLE `panitia`
-  ADD CONSTRAINT `FK_RELATIONSHIP_23` FOREIGN KEY (`_ID_JEMAAT`) REFERENCES `jemaat` (`_ID_JEMAAT`),
-  ADD CONSTRAINT `FK_RELATIONSHIP_24` FOREIGN KEY (`ID_EVENT`) REFERENCES `event` (`ID_EVENT`);
+-- --
+-- -- Constraints for table `panitia`
+-- --
+-- ALTER TABLE `panitia`
+--   ADD CONSTRAINT `FK_RELATIONSHIP_23` FOREIGN KEY (`_ID_JEMAAT`) REFERENCES `jemaat` (`_ID_JEMAAT`),
+--   ADD CONSTRAINT `FK_RELATIONSHIP_24` FOREIGN KEY (`ID_EVENT`) REFERENCES `event` (`ID_EVENT`);
 
---
--- Constraints for table `role_jemaat`
---
-ALTER TABLE `role_jemaat`
-  ADD CONSTRAINT `FK_RELATIONSHIP_25` FOREIGN KEY (`_ID_JEMAAT`) REFERENCES `jemaat` (`_ID_JEMAAT`),
-  ADD CONSTRAINT `FK_RELATIONSHIP_26` FOREIGN KEY (`ID_ROLE`) REFERENCES `role` (`ID_ROLE`);
+-- --
+-- -- Constraints for table `role_jemaat`
+-- --
+-- ALTER TABLE `role_jemaat`
+--   ADD CONSTRAINT `FK_RELATIONSHIP_25` FOREIGN KEY (`_ID_JEMAAT`) REFERENCES `jemaat` (`_ID_JEMAAT`),
+--   ADD CONSTRAINT `FK_RELATIONSHIP_26` FOREIGN KEY (`ID_ROLE`) REFERENCES `role` (`ID_ROLE`);
 
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+-- /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+-- /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+-- /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
